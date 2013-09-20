@@ -11,3 +11,13 @@
 .nocap {
     text-transform: none;
 }
+
+.logo {
+    position: relative; !important
+    float: left; !important
+    padding: 10px; !important
+}
+
+.large-li {
+  font-size: 22pt; !important
+}

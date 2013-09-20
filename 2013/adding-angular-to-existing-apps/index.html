@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Unit Testing AngularJS Directives (Lightning Talk)</title>
+    <title>Adding Angular to Existing Apps</title>
 
-    <meta name="description" content="A lightning talk on unit testing Angular JS directives and running those tests with Karma, delivered at the Boston AngularJS meetup group in September 2013">
-    <meta name="author" content="K.Adam White">
+    <meta name="description" content="A presentation on adding AngularJS javascript framework to existing web applications given at NCDevCon in September 2013">
+    <meta name="author" content="Sharon DiOrio">
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -46,9 +46,10 @@
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides" id="slides-element">
 
-            <section data-markdown="directive-testing.md"
+            <section data-markdown="adding-angular.md"
                      data-separator="^\n\n\n"
-                     data-vertical="^\n\n">
+                     data-vertical="^\n\n"
+                     data-notes="^Note:">
             </section>
 
         </div>
@@ -59,6 +60,21 @@
     <script src="/talks/js/reveal/js/reveal.min.js"></script>
 
     <script>
+
+        // Code formatting hack courtesy of...who else?... Ray Camden
+
+        console.log("Run my init, yo!");
+
+        var cblocks = document.querySelectorAll("pre code");
+                    
+        if(cblocks.length) {
+            for(var i=0, len=cblocks.length; i<len; i++) {
+                var dom = cblocks[i];
+                var html = dom.innerHTML;
+                html = html.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+                dom.innerHTML = html;
+            }
+        }
 
         // Full list of configuration options available here:
         // https://github.com/hakimel/reveal.js#configuration
@@ -84,15 +100,6 @@
             ]
         });
 
-    </script>
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-43640953-1', 'kadamwhite.github.io');
-        ga('send', 'pageview');
     </script>
 </body>
 </html>
