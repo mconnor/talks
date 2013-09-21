@@ -1,60 +1,5 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-
-    <title>Adding Angular to Existing Apps</title>
-
-    <meta name="description" content="A presentation on adding AngularJS javascript framework to existing web applications given at NCDevCon in September 2013">
-    <meta name="author" content="Sharon DiOrio">
-
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <link rel="shortcut icon" href="/talks/favicon.ico" type="image/x-icon" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-    <link rel="stylesheet" href="/talks/js/reveal/css/reveal.min.css">
-    <link rel="stylesheet" href="/talks/js/reveal/css/theme/beige.css" id="theme">
-    <link rel="stylesheet" href="custom.css" id="theme-overrides">
-
-    <!-- For syntax highlighting -->
-    <link rel="stylesheet" href="/talks/css/xcode.css">
-
-    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
-    <script>
-        document.write( '<link rel="stylesheet" href="/talks/js/reveal/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-    </script>
-
-    <!--[if lt IE 9]>
-    <script src="/talks/js/reveal/lib/js/html5shiv.js"></script>
-    <![endif]-->
-    <style type="text/css">
-    .reveal section img {
-        background: transparent;
-        border: 0;
-        box-shadow: none;
-    }
-    </style>
-</head>
-
-<body>
-
-    <div class="reveal">
-
-        <!-- Any section element inside of this container is displayed as a slide -->
-        <div class="slides" id="slides-element">
-
-<!--             <section data-markdown="adding-angular.md"
-                     data-separator="^Slide:"
-                     data-vertical="^\n\n"
-                     data-notes="^Note:">
-            </section> -->
-
-            <section>
-<h1> Adding AngularJS to Existing Apps</h1>
-<h3> Getting the UI Sugar...Without the jQuery Pain</h3>
+# Adding AngularJS to Existing Apps
+### Getting the UI Sugar...Without the jQuery Pain
 
 NCDevCon, September 2013
 
@@ -65,17 +10,16 @@ Sharon DiOrio &bull; [@sharondio](https://twitter.com/sharondio)
   I'm currently a Senior Web Developer for Euro-Pro. We're a Billion-dollar company that nobody has ever heard of. Sort of. We make the shark vacuum and ninja kitchen products. You may have seen our owner on late-night infomercials selling vacuums and steam mops.
 </aside>
 
-</section><section>
 
-<h2> My story</h2>
-<h3> ColdFusion was my life</h3>
+
+## My story
+### ColdFusion was my life
 <img src="images/old_school.png">
 
 <aside class="notes">It all began when my Filemaker Pro rep went to Allaire and called me about this cool new software I should look at. I went to the demo with a colleague who was doing web work with Oracle web server. We watched the simple demos with CF talking to the DB and displaying data. Her jaw hung open. She shared that that little bit of magic would've taken her 3 days of coding with Oracle. So I immediately got ahold of a demo copy of CF version 3.0 (the first hit is free) and tied a database to the web for the first time. I knew then, I was hooked.</aside>
 
-</section><section>
 
-<h2> Blatant Brag Slide</h2>
+## Blatant Brag Slide
 
 <img src="images/achieve.jpeg" class="logo">
 <img src="images/bcg.jpeg" class="logo">
@@ -87,23 +31,23 @@ Sharon DiOrio &bull; [@sharondio](https://twitter.com/sharondio)
 
 <aside class="notes">In order to feed my habit, I found positions with various companies. Fortunately for me, ColdFusion has served as a sort of "prescreening" for companies I'd want to work for. Pragmatic companies. Companies that made technical decisions based on the right tool rather than whatever MS was peddling.</aside>
 
-</section><section>
 
-<h2> Why move to Javascript?</h2>
+
+## Why move to Javascript?
 
 <aside class="notes">Note: I was always able to find CF work. That's never been the problem. In fact, even now I get recruiters contacting me for CF. But I was getting bored. I didn't get the same "high" I'd gotten in years past from doing cool stuff. I knew it was time to add to the toolbox, but what to choose? It was very apparent to me that that market was evolving rapidly. Instead of heavy middleware apps, people were migrating to well-organized services and putting more logic in the client.</aside>
 
-</section><section>
 
-<h3> On Javascript</h3>
 
-<blockquote>"Every developer loves and hates JavaScript a little bit."</blockquote>
+### On Javascript
+
+> "Every developer loves and hates JavaScript a little bit."
 
 <small>~ Jeremy Foster</small>
 
-<h3> But...</h3>
+### But...
 
-<blockquote>"Learning JavaScript used to mean you weren't a serious software developer. Today, not learning Javascript means the same thing."</blockquote>
+> "Learning JavaScript used to mean you weren't a serious software developer. Today, not learning Javascript means the same thing."
 
 <small>~ Tim O'Reilly</small>
 
@@ -111,10 +55,10 @@ Sharon DiOrio &bull; [@sharondio](https://twitter.com/sharondio)
   Am I the only one that remembers when the front-end developers were the low guys on the totem pole?
 </aside>
 
-</section><section>
 
 
-<h2> Why Angular?</h2>
+
+## Why Angular?
 
 <img src="images/popularity.jpeg" width="800">
 
@@ -127,12 +71,12 @@ Sharon DiOrio &bull; [@sharondio](https://twitter.com/sharondio)
   When I started at Euro-Pro, we were using CanJS on the front-end and python web services with MS SQL via ORM on the back-end.
  It was pretty clunky, so I was tasked with finding new options. Evaluating frameworks is overwhelming. I read blog posts and played with demos. Then I got to Angular. In one night, I'd rewritten a common list interface that was plaguing us in one of our apps. I brought it in to demo to my boss (one of the reasons for learning this stuff) and we just grinned. We'd found our framework. As an aside, the community surrounding this framework is probably the best I've experienced since CF.</aside>
 
-</section><section>
 
-<h2>Why this talk?</h2>
-<h3> Plenty of demos, do we need more?</h3>
+
+##Why this talk?
+### Plenty of demos, do we need more?
 We do when your code looks something like this<sup>*</sup>:
-<pre><code data-trim contenteditable>
+```
   <CFIF request.StatusCode EQ "30" OR request.StatusCode EQ "31" OR request.StatusCode EQ "32">
       <CFSTOREDPROC procedure="dbo.spAppendRFQQuestions" DATASOURCE="#session.ds4#">
         <CFPROCPARAM type="IN" dbvarname="@QuoteID"           value="#request.QuoteID#"          CFSQLTYPE="CF_SQL_INTEGER">
@@ -189,8 +133,8 @@ We do when your code looks something like this<sup>*</sup>:
           </tr>
         </table>
       <cfcatch>Bad stuff happened</cfcatch>
-    </CFTRY>
-</code></pre>
+    <CFTRY>
+```
 <small>* Actual code snippet from a 1500 line file that handled 1 actual function.</small>
 
 <aside class="notes">I'd gone to CF.Objective this past spring and saw a couple of great Angular talks. They both walked through a demo app and did a good job explaining the framework. But something was missing. Talking with friends afterwards, we realized that people loved the talks, but they didn't know where to begin. See, most of us are stuck with code like that. We can't just rewrite everything as a front-end application. And all the demos assume you're doing just that. Yeah, yeah, ToDos...but what about my app? So I thought about what I'd want out of a presentation if I were still stuck maintaining code like that.
@@ -198,9 +142,9 @@ We do when your code looks something like this<sup>*</sup>:
 So I had to ask myself...what would you want?
 </aside>
 
-</section><section>
 
-<h2> I'd want:</h2>
+
+## I'd want:
 
 <ul>
   <li class="fragment fade-in"> Quick Results</li>
@@ -220,9 +164,9 @@ So I had to ask myself...what would you want?
   Fun/Feel like a genius = Remember when coding was fun? OK, coding is really a combination of feeling like a genius and feeling like a moron...sometimes at the same time. But it can still be fun.
 </aside>
 
-</section><section>
 
-<h2> Ben Nadel's Angular experience</h2>
+
+## Ben Nadel's Angular experience
 
 <img src="images/ben-angular.png" />
 
@@ -230,9 +174,10 @@ So I had to ask myself...what would you want?
   I just had to include this graphic from Ben. It's my hope that I'll get you to at least the "Ok, that's pretty sweet" level.
 </aside>
 
-</section><section>
 
-<h2> Where are you now with JS?</h2>
+
+
+## Where are you now with JS?
 
 <ul>
   <li class="fragment fade-in">Avoids Javascript like the plague</li>
@@ -246,20 +191,22 @@ So I had to ask myself...what would you want?
   Show of hands.
 </aside>
 
-</section><section>
 
-<h2>You can't talk about Javascript without talking about jQuery</h2>
+
+
+##You can't talk about Javascript without talking about jQuery
 But let's just be honest...
 
 <aside class="notes">
   Speaking of jQuery...
 </aside>
 
-</section><section>
 
-<h2> Nobody really liked this</h2>
 
-<pre><code data-trim contenteditable>
+
+## Nobody really liked this
+
+```
 function next(selector) {
     var $element = $(selector);
 
@@ -270,7 +217,7 @@ function next(selector) {
             return $(this).next().length > 0;
         }).next()).first();
 }
-</code></pre>
+```
 <small class="fragment fade-in">Because jQuery is Imperative programming applied to the DOM</small>
 <aside class="notes">
 Other than Ray Camden maybe. 
@@ -280,11 +227,11 @@ And don't get me wrong, jQuery was a huge improvement over dealing with the DOM 
 It's no fun because it's imperative programming applied to the DOM.
 </aside>
 
-</section><section>
 
-<h2> Geek Trivia</h2>
 
-<h3>Imperative vs. Declarative</h3>
+## Geek Trivia
+
+###Imperative vs. Declarative
 
 <ul>
   <li>Imperative is explicitly the DOM what to do and how to do it.</li>
@@ -295,46 +242,47 @@ It's no fun because it's imperative programming applied to the DOM.
   Not important to know this, but I like having terms for things. Besides, you've already done lots of both.
 </aside>
 
-</section><section>
 
-<h2>Look familiar?</h2>
 
-<pre><code data-trim contenteditable>
-<cfloop query="myData">
+##Look familiar?
+
+  ```
+  <cfloop query="myData">
     #name# #address# ...
-</cfloop>
-</code></pre>
+  </cfloop>
 
+  ```
 <aside class="notes">
 ColdFusion is very declarative. I, for one, have always loved the fact that I could look at the CFML mark-up and know exactly what each element was supposed to be doing. 
 </aside>
 
-</section><section>
 
-<h2>Angular is very declarative too.</h2>
 
-<pre><code data-trim contenteditable>
-<div ng-repeat="item in myData">
+##Angular is very declarative too.
+
+```
+  <div ng-repeat="item in myData">
     {{item.name}} {{item.address}}
-</div>
-</code></pre>
+  </div>
+```
 <aside class="notes">
   The Google guys may not like the comparison, but Angular actually does have a bit in common with ColdFusion. Angular has been described as "HTML extended". Well, guess what, CF has been doing that since 1995. What CF did with CFML tags, Angular is doing with directives. Angular includes a bunch of core directives, just like CF includes core tags. And both allow you to extend and make your own functionality, what CF calls custom tags, Angular calls...well, they still call them directives.
 </aside>
 
-</section><section>
 
-<h2> OK, nice slides...but...</h2>
-<blockquote>"Talk is cheap. Show me the code."</blockquote>
+
+## OK, nice slides...but...
+> "Talk is cheap. Show me the code."
 
 <small>~ Linus Torvalds</small>
 
-</section><section>
 
-<h2> Demo 1</h2>
+
+
+## Demo 1
 Bootstrapping a complete AngularJS Application
 
-<pre><code data-trim contenteditable>
+<code><pre>
 &lt;!DOCTYPE html&gt;
 &lt;html ng-app&gt;
     &lt;head&gt;
@@ -350,7 +298,7 @@ Bootstrapping a complete AngularJS Application
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
-</code></pre>
+</pre></code>
 
 <small><a href="demos/before/basic-app">Clicky-Clicky</a></small>
 
@@ -364,12 +312,12 @@ Bootstrapping a complete AngularJS Application
   OK, that really didn't knock your hair back...let's try it with a controller.
 </aside>
 
-</section><section>
 
-<h2> Demo 2</h2>
+
+## Demo 2
 With a controller
 
-<pre><code data-trim contenteditable>
+<code><pre>
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
@@ -402,7 +350,7 @@ With a controller
         &lt;div&gt;&lt;input ng-model=&quot;title&quot;&gt;&lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
-</code></pre>
+</pre></code>
 
 <small><a href="demos/after/basic-app-module">Clicky-Clicky</a></small>
 
@@ -414,12 +362,12 @@ With a controller
   You'll also notice that "$scope" was injected into the controller. Angular is big on dependency injection, and if you haven't done a lot with it before, it will feel a little cumbersome. But once you graduate to bigger apps and testing, you'll see how it simplifies everything.
 </aside>
 
-</section><section>
 
-<h2> Demo 3</h2>
+
+## Demo 3
 Nothing ain't nothing without data
 
-<pre><code data-trim contenteditable>
+<code><pre>
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
@@ -462,7 +410,7 @@ Nothing ain't nothing without data
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
-</code></pre>
+</pre></code>
 
 <small><a href="demos/after/basic-app-with-data">Clicky-Clicky</a></small>
 
@@ -476,12 +424,12 @@ Nothing ain't nothing without data
   You can also use $http to pull back a flat json file. Angular doesn't care.
 </aside>
 
-</section><section>
 
-<h2> Demo 4</h2>
+
+## Demo 4
 Put data access in a service
 
-<pre><code data-trim contenteditable>
+<code><pre>
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
@@ -534,7 +482,7 @@ Put data access in a service
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
-</code></pre>
+</pre></code>
 
 <small><a href="demos/after/basic-app-with-data-service">Clicky-Clicky</a></small>
 
@@ -542,11 +490,11 @@ Put data access in a service
   I'm not going to spend a lot of time on this, but I wanted to show a better way of doing the data handling. Services are shared singletons injected into controllers. Because they're singletons, they're also a good way to share data between controllers.
 </aside>
 
-</section><section>
 
-<h2>One more with a bigger service</h2>
 
-<pre><code data-trim contenteditable>
+##One more with a bigger service
+
+<code><pre>
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
@@ -606,52 +554,53 @@ Put data access in a service
         &lt;/div&gt;
     &lt;/body&gt;
 &lt;/html&gt;
-</code></pre>
+</pre></code>
 
 <aside class="notes">
   Just wanted to show a more expanded service. You can group functions together in a service by using the "this" namespace.
 </aside>
 
-</section><section>
 
-<h2>But what about a real app?</h2>
+
+
+##But what about a real app?
 
 (My confession, I've never actually added AngularJS to an existing app until now.)
 
-</section><section>
 
-<h2>"Real" Demo</h2>
+
+##"Real" Demo
 
 <small><a href="demos/before/real-app">Clicky-Clicky</a></small>
 
-</section><section>
 
-<h2> It's great when it works!</h2>
+
+## It's great when it works!
 
 <img src="images/fire.jpg" />
 
-</section><section>
 
-<h2>Now, a story</h2>
+
+##Now, a story
 
 <img src="images/pointy-haired-boss.jpg" />
 
 <small>Stop me if you've heard this one before</small>
 
-</section><section>
 
-<h2>Rolling Demo</h2>
+
+##Rolling Demo
 
 <small><a href="demos/before/real-app/sortable">Clicky-Clicky</a></small>
 
-</section><section>
 
-<pre><code data-trim contenteditable>
+
+```
 var app = angular.module('NCDevConTalk', []);
 app.controller('TalkCtrl', function($scope) {
   $scope.status = 'done';
 });
-</code></pre>
+```
 
 <br />
 
@@ -675,58 +624,6 @@ Resources:
 * [Videos] (http://egghead.io) Egghead Videos
 * [Videos] (http://www.youtube.com/user/angularjs) Angular Youtube Channel
 * [Blog] (http://www.yearofmoo.com/) Year of Moo Blog
+
+
 </small>
-</section>
-
-        </div>
-
-    </div>
-
-    <script src="/talks/js/reveal/lib/js/head.min.js"></script>
-    <script src="/talks/js/reveal/js/reveal.min.js"></script>
-
-    <script>
-
-        // Code formatting hack courtesy of...who else?... Ray Camden
-
-        console.log("Run my init, yo!");
-
-        var cblocks = document.querySelectorAll("pre code");
-        console.log(cblocks);
-                    
-        if(cblocks.length) {
-            for(var i=0, len=cblocks.length; i<len; i++) {
-                var dom = cblocks[i];
-                var html = dom.innerHTML;
-                html = html.replace(/</g,"&lt;").replace(/>/g,"&gt;");
-                dom.innerHTML = html;
-            }
-        }
-
-        // Full list of configuration options available here:
-        // https://github.com/hakimel/reveal.js#configuration
-        Reveal.initialize({
-            controls: true,
-            progress: true,
-            history: true,
-            center: true,
-
-            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-            transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
-
-            // Optional libraries used to extend on reveal.js
-            dependencies: [
-                { src: '/talks/js/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-                { src: '/talks/js/reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                { src: '/talks/js/reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                { src: '/talks/js/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-                { src: '/talks/js/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-                { src: '/talks/js/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-                // { src: '/talks/js/reveal/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
-                // { src: '/talks/js/reveal/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
-            ]
-        });
-
-    </script>
-</body>
-</html>
