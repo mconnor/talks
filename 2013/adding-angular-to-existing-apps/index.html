@@ -11,24 +11,24 @@
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <link rel="shortcut icon" href="/talks/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <link rel="stylesheet" href="/talks/js/reveal/css/reveal.min.css">
-    <link rel="stylesheet" href="/talks/js/reveal/css/theme/beige.css" id="theme">
+    <link rel="stylesheet" href="/js/reveal/css/reveal.min.css">
+    <link rel="stylesheet" href="/js/reveal/css/theme/beige.css" id="theme">
     <link rel="stylesheet" href="custom.css" id="theme-overrides">
 
     <!-- For syntax highlighting -->
-    <link rel="stylesheet" href="/talks/css/xcode.css">
+    <link rel="stylesheet" href="/css/xcode.css">
 
     <!-- If the query includes 'print-pdf', use the PDF print sheet -->
     <script>
-        document.write( '<link rel="stylesheet" href="/talks/js/reveal/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        document.write( '<link rel="stylesheet" href="/js/reveal/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
     </script>
 
     <!--[if lt IE 9]>
-    <script src="/talks/js/reveal/lib/js/html5shiv.js"></script>
+    <script src="/js/reveal/lib/js/html5shiv.js"></script>
     <![endif]-->
     <style type="text/css">
     .reveal section img {
@@ -339,7 +339,7 @@ Bootstrapping a complete AngularJS Application
 &lt;html ng-app&gt;
     &lt;head&gt;
       &lt;title&gt;Adding AngularJS to Existing Apps - Basic App&lt;/title&gt;
-        &lt;script src=&quot;/talks/common/angular/angular.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;/common/angular/angular.min.js&quot;&gt;&lt;/script&gt;
     &lt;/head&gt;
     &nbsp;
     &lt;body&gt;
@@ -376,11 +376,11 @@ With a controller
         &lt;title&gt;Adding AngularJS to Existing Apps - Demo 1&lt;/title&gt;
         &nbsp;
         &lt;!-- style counts --&gt;
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;/talks/css/normalize.css&quot;&gt;
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;/talks/css/main.css&quot;&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/normalize.css&quot;&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.css&quot;&gt;
         &nbsp;
         &lt;!-- core scripts --&gt;
-        &lt;script src=&quot;/talks/common/angular/angular.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;/common/angular/angular.min.js&quot;&gt;&lt;/script&gt;
         &nbsp;
         &lt;!-- app scripts --&gt;
         &lt;script&gt;
@@ -426,11 +426,11 @@ Nothing ain't nothing without data
         &lt;title&gt;Adding AngularJS to Existing Apps - Simple With Data&lt;/title&gt;
         &nbsp;
         &lt;!-- style counts --&gt;
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;/talks/css/normalize.css&quot;&gt;
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;/talks/css/main.css&quot;&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/normalize.css&quot;&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.css&quot;&gt;
         &nbsp;
         &lt;!-- core scripts --&gt;
-        &lt;script src=&quot;/talks/common/angular/angular.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;/common/angular/angular.min.js&quot;&gt;&lt;/script&gt;
         &nbsp;
         &lt;!-- app scripts --&gt;
         &lt;script&gt;
@@ -488,11 +488,11 @@ Put data access in a service
         &lt;title&gt;Adding AngularJS to Existing Apps - Simple With Data&lt;/title&gt;
         &nbsp;
         &lt;!-- style counts --&gt;
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;/talks/css/normalize.css&quot;&gt;
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;/talks/css/main.css&quot;&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/normalize.css&quot;&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.css&quot;&gt;
         &nbsp;
         &lt;!-- core scripts --&gt;
-        &lt;script src=&quot;/talks/common/angular/angular.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;/common/angular/angular.min.js&quot;&gt;&lt;/script&gt;
         &nbsp;
         &lt;!-- app scripts --&gt;
         &lt;script&gt;
@@ -553,11 +553,11 @@ Put data access in a service
         &lt;title&gt;Adding AngularJS to Existing Apps - Simple With Data&lt;/title&gt;
         &nbsp;
         &lt;!-- style counts --&gt;
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;/talks/css/normalize.css&quot;&gt;
-        &lt;link rel=&quot;stylesheet&quot; href=&quot;/talks/css/main.css&quot;&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/normalize.css&quot;&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/main.css&quot;&gt;
         &nbsp;
         &lt;!-- core scripts --&gt;
-        &lt;script src=&quot;/talks/common/angular/angular.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script src=&quot;/common/angular/angular.min.js&quot;&gt;&lt;/script&gt;
         &nbsp;
         &lt;!-- app scripts --&gt;
         &lt;script&gt;
@@ -659,7 +659,7 @@ app.controller('TalkCtrl', function($scope) {
 
 <br />
 
-Slides: [Github Repo](https://github.com/Sharondio/talks/tree/master/2013/adding-angular-to-existing-apps)
+Slides: [Github Repo](https://github.com/Sharondio/tree/master/2013/adding-angular-to-existing-apps)
 
 <small>sharondio @ [twitter](http://twitter.com/sharondio) &amp; [Google+](https://plus.google.com/u/0/115487514031744604257/posts)</small>
 
@@ -682,8 +682,8 @@ Resources:
 
     </div>
 
-    <script src="/talks/js/reveal/lib/js/head.min.js"></script>
-    <script src="/talks/js/reveal/js/reveal.min.js"></script>
+    <script src="/js/reveal/lib/js/head.min.js"></script>
+    <script src="/js/reveal/js/reveal.min.js"></script>
 
     <script>
 
@@ -716,14 +716,14 @@ Resources:
 
             // Optional libraries used to extend on reveal.js
             dependencies: [
-                { src: '/talks/js/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-                { src: '/talks/js/reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                { src: '/talks/js/reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                { src: '/talks/js/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-                { src: '/talks/js/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-                { src: '/talks/js/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-                // { src: '/talks/js/reveal/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
-                // { src: '/talks/js/reveal/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+                { src: '/js/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: '/js/reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/js/reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '/js/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                { src: '/js/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                { src: '/js/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                // { src: '/js/reveal/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+                // { src: '/js/reveal/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
             ]
         });
 

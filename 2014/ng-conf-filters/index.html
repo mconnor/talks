@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+
+<title>NG-CONF: AngularJS Filters</title>
+
+<meta name="description" content="A presentation on Angular Filters given at ng-conf, January 2014">
+<meta name="author" content="Sharon DiOrio">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="/js/reveal/css/reveal.min.css">
+<link rel="stylesheet" href="/js/reveal/css/theme/beige.css" id="theme">
+<link rel="stylesheet" href="custom.css" id="theme-overrides">
+
+<!-- For syntax highlighting -->
+<link rel="stylesheet" href="/css/xcode.css">
+
+<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+<script>
+document.write( '<link rel="stylesheet" href="/js/reveal/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+</script>
+
+<!--[if lt IE 9]>
+<script src="/js/reveal/lib/js/html5shiv.js"></script>
+<![endif]-->
+<style type="text/css">
+.reveal section img {
+background: transparent;
+border: 0;
+box-shadow: none;
+}
+</style>
+
+<!-- angular stuff for embedded code -->
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular.min.js"></script>
+
+</head>
+
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h1>Angular Filters</h1>
+                    <h3>Ng-Conf January 2013</h3>
+
+                    Sharon DiOrio &bull; [@sharondio]
+                </section>
+
+                <section>
+                    <h2>Time to evaluate JS Frameworks!*</h2>
+                    <img src="images/dilbert_evaluate.gif" />
+
+                    <p class="fragment fade-in">* I was not sent to Hawaii to evaluate AngularJS</p>
+                    <p class="fragment fade-in">** My boss wanted me to say that he does not have a hairy back.</p>
+                </section>
+
+                <section>
+                    <h2>Reasons most people pick technologies/frameworks</h2>
+
+                    <ul>
+                        <li class="fragment fade-in">How much does it cost?</li>
+                        <li class="fragment fade-in">Does it fit into our current infrastructure?</li>
+                        <li class="fragment fade-in">Are developers trained in it?</li>
+                        <li class="fragment fade-in">Is it stable?</li>
+                        <li class="fragment fade-in">Is it Microsoft/Google/Java?</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Reasons I pick technologies/frameworks</h2>
+
+                    <ul>
+                        <li class="fragment fade-in">Quick Results</li>
+                        <li class="fragment fade-in">Impress your boss</li>
+                        <li class="fragment fade-in">Impress other geeks</li>
+                        <li class="fragment fade-in">Resume fodder</li>
+                        <li class="fragment fade-in">Fun/Feel like a genius</li>
+                    </ul>
+
+                    <aside class="notes">
+                        Quick results = I want to be making stuff happen like...tomorrow.  Ok, Monday.<br>
+                        Impress your boss = I want to justify being paid more money.<br>
+                        Impress other geeks = Geek cred is important.<br>
+                        Resume fodder = In case boss isn't impressed.<br>
+                        Fun/Feel like a genius = Remember when coding was fun? OK, coding is really a combination of feeling like a genius and feeling like a moron...sometimes at the same time. But it can still be fun.
+                    </aside>  
+
+                </section>
+
+                <section>
+
+                    <h2>My first app</h2>
+
+                    <iframe style="height: 530px; width: 80%; border: 0;" src="demos/first-app/">
+                    </iframe>
+
+                    <a class="demo" href="demos/first-app/">clicky-clicky</a>
+
+                    <aside class="notes"></aside>
+
+                </section>
+
+                <section>
+                    <h2>Filters seemed like Magic</h2>
+
+                    <img src="images/fire.jpg" />
+                </section>
+
+                <section>
+                    <h2>The Code</h2>
+
+                    <pre>
+                        <code data-trim contenteditable>
+<div ng-controller="MainCtrl">
+    Filter by: <input ng-model="query">
+    <table><thead>
+    <tr>
+        <th>
+        Title 
+        <a ng-click="orderProp = 'title'" class="icon-chevron-down"></a>
+        <a ng-click="orderProp = '-title'" class="icon-chevron-up"></a></th>
+    </tr></thead>
+    <tbody>
+    <tr ng-repeat="host in hosts | filter: query | orderBy:orderProp">
+        <td ng-click="getHost(host.id)">{{host.title}}</td>
+        <td>{{host.environment.title}}</td>
+    </tr></tbody>
+</table>
+</div>
+                        </code>
+                    </pre>
+
+                </section>
+
+                <section>
+                    <h2>How the Magic works</h2>
+
+                    <img src="images/wizard-of-oz.jpg" />
+
+                </section>
+
+                <section>
+
+                    <h3>String Filter</h3>
+
+<pre>
+<code data-trim contenteditable>
+angular.module('phonecatFilters', [])
+  .filter('checkmark', function() {
+    return function(input) {
+      return input ? '\u2713' : '\u2718';
+    };
+  });
+</code>
+</pre>
+
+<p class="fragment fade-in">(All it does is return a function that returns the updated string.)</p>
+<p class="fragment fade-in">(I still wish someone had told me that in the beginning.)</p>
+
+                </section>
+
+                <section>
+                    <h2>Filter: Filter (Array forEach Filter)</h2>
+
+                    <iframe style="height: 530px; width: 80%; border: 0;" src="demos/filter-checkboxes/">
+                    </iframe>
+
+                    <a class="demo" href="demos/filter-checkboxes/code.html">clicky-clicky</a>
+                
+                </section>
+
+                <section>
+                    <h2>Custom Filter</h2>
+
+                    <!-- code sample here -->
+                
+                </section>
+
+                <section>
+                    <h2>Testing Filters</h2>
+
+                    <!-- code sample here -->
+                
+                </section>
+
+                <section>
+                    <h2>Chaining Filters</h2>
+
+                    <!-- code sample here -->
+                
+                </section>
+
+                <section>
+                    <h2>Performance of Filters</h2>
+
+                    <!-- code sample here -->
+                
+                </section>
+
+                <section>
+                    <h2>Don't Use Filters When...</h2>
+
+                    <ul>
+                        <li class="fragment fade-in">DOM Manipulation (use directives!)</li>
+                        <li class="fragment fade-in">Very complex data transformations (server-side or use a service)</li>
+                        <li class="fragment fade-in">Unstable functions (no random functions)</li>
+                        <li class="fragment fade-in">Restricting access to information</li>
+                    </ul>
+                
+                </section>
+
+                <section>
+                    <h2>Filters are still Magical</h2>
+
+                    <!-- code sample here -->
+                
+                </section>
+
+            </div>
+        </div>
+
+    </body>
+
+    <script src="/js/reveal/lib/js/head.min.js"></script>
+    <script src="/js/reveal/js/reveal.min.js"></script>
+
+    <script>
+
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+
+    theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+    transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+
+    // Optional libraries used to extend on reveal.js
+    dependencies: [
+    { src: '/js/reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+    { src: '/js/reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '/js/reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+    { src: '/js/reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+    { src: '/js/reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+    { src: '/js/reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: '/js/reveal/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+    // { src: '/js/reveal/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+    ]
+    });
+
+    </script>
+
+</html>

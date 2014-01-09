@@ -1,0 +1,10 @@
+/* Put your css in here */
+body {
+  padding-top: 50px;
+}
+
+.edit_controls {
+    padding-bottom: 15px;
+    padding-left: 5px;
+    float:left;
+}
