@@ -177,21 +177,51 @@ angular.module('phonecatFilters', [])
                 <section>
                     <h2>Custom Filter</h2>
 
-                    <!-- code sample here -->
-                
+                    <iframe style="height: 530px; width: 80%; border: 0;" src="demos/custom-filter/app/">
+                    </iframe>
+
+                    <a class="demo" href="demos/custom-filter/code.html">clicky-clicky</a>
+                    
                 </section>
 
                 <section>
                     <h2>Testing Filters</h2>
 
                     <!-- code sample here -->
-                
+<pre>
+<code data-trim contenteditable>
+describe('filter', function() {
+ 
+  beforeEach(module('phonecatFilters'));
+ 
+  describe('checkmark', function() {
+ 
+    it('should convert boolean values to unicode checkmark or cross',
+        inject(function(checkmarkFilter) {
+      expect(checkmarkFilter(true)).toBe('\u2713');
+      expect(checkmarkFilter(false)).toBe('\u2718');
+    }));
+  });
+});
+</code>
+</pre>
                 </section>
 
                 <section>
                     <h2>Chaining Filters</h2>
 
                     <!-- code sample here -->
+<pre>
+<code data-trim contenteditable>
+&lt;tr ng-repeat="beer in beers | filter: filterByCategory | orderBy: sortBy | limitTo: 20"&gt;
+</code>
+</pre>
+<p>vs.</p>
+<pre>
+<code data-trim contenteditable>
+&lt;tr ng-repeat="beer in beers| limitTo: 20 | filter: filterByCategory | orderBy: sortBy "&gt;
+</code>
+</pre>
                 
                 </section>
 

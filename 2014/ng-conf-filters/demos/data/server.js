@@ -5,23 +5,25 @@ var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
 var restify = require('express-restify-mongoose')
 
-mongoose.connect('mongodb://localhost/beers');
-
+mongoose.connect('mongodb://localhost/ngconf');
 var beerSchema = new Schema({
   _id: ObjectId,
   id: Number,
-  brewery_id: Number,
+  brewery: {
+    name: String,
+    country: String,
+    state: String,
+    city: String,
+    geocodes: {
+      longitude: Number,
+      latitude: Number
+    }
+  },
   name: String,
-  cat_id: Number,
-  style_id: Number,
+  category: String,
+  style: String,
   abv: Number,
-  ibu: Number,
-  srm: Number,
-  upc: Number,
-  filepath: String,
-  descript: String,
-  add_user: Number,
-  last_mod: Date
+  descript: String
 });
 
 var Beers = mongoose.model('Beers', beerSchema);
@@ -29,7 +31,6 @@ var Beers = mongoose.model('Beers', beerSchema);
 var app = express();
 var options = {
   access : function (request) {
-    console.log("REQUEST:", request)
     return 'public'
   }
 }

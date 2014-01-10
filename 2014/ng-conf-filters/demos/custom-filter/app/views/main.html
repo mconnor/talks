@@ -1,27 +1,40 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
+<div class="header">
+  <h3 class="text-muted">Custom Filter Demo</h3>
+  <h5>Beer Categories</h5>
+  <div class="filter_controls three-col">
+    <div ng-repeat = "cat in beerCategories" class="filter_checkbox">
+      <input type="checkbox" ng-model="filterItems[cat.category]"> {{cat.category}}
+    </div>
+  </div>
 </div>
 
 <div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+  <table class="table">
+    <thead>
+        <tr>
+            <th class="beer_name">Name
+              <a ng-click="sortBy='name'" class="glyphicon glyphicon-chevron-down"></a>
+              <a ng-click="sortBy='-name'" class="glyphicon glyphicon-chevron-up"></a></th>
+            <th class="beer_category">Category
+              <a ng-click="sortBy='category'" class="glyphicon glyphicon-chevron-down"></a>
+              <a ng-click="sortBy='-category'" class="glyphicon glyphicon-chevron-up"></a></th>
+            <th>Brewery
+              <a ng-click="sortBy='brewery.name'" class="glyphicon glyphicon-chevron-down"></a>
+              <a ng-click="sortBy='-brewery.name'" class="glyphicon glyphicon-chevron-up"></a></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="beer in beers | filter: filterByCategory | orderBy: sortBy | limitTo: 20">
+            <td>{{beer.name}}</td>
+            <td>{{beer.category}}</td>
+            <td>{{beer.brewery.name}}<br>
+              <div ng-show="beer.brewery.country = 'United States'">{{beer.brewery.city}}, {{beer.brewery.state}}</div>
+            </td>
+        </tr>
+    </tbody>
+  </table>
 </div>
 
 <div class="footer">
-  <p>♥ from the Yeoman team</p>
+  <p>NG-CONF 2014 : AngularJS Filters</p>
 </div>

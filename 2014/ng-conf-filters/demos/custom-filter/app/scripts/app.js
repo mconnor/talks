@@ -1,15 +1,14 @@
 'use strict';
 
-angular.module('customFilterApp', [
-  'ngCookies',
+angular.module('myApp', [
+  'ui.filters',
   'ngResource',
-  'ngSanitize',
   'ngRoute'
 ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/beer-list.html',
+        templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
       .otherwise({
