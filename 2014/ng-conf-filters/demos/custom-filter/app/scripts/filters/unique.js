@@ -6,8 +6,6 @@ filters.filter('unique', function () {
 
   return function (items, filterOn, removeNulls) {
 
-    if(!removeNulls) removeNulls = false;
-
     if (filterOn === false) {
       return items;
     }

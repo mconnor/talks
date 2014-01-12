@@ -32,10 +32,10 @@ body {
 }
 
 .three-col {
-       -moz-column-count: 3;
-       -moz-column-gap: 20px;
-       -webkit-column-count: 3;
-       -webkit-column-gap: 20px;
+       -moz-column-count: 10;
+       -moz-column-gap: 10px;
+       -webkit-column-count: 10;
+       -webkit-column-gap: 10px;
 }
 
 .filter_controls {
@@ -51,14 +51,20 @@ body {
   padding-right: 15px;
 }
 
-/* Customize container */
-@media (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
+.dns_registrar {
+  min-width: 340px; !important
+  width: 340px; !important
 }
-.container-narrow > hr {
-  margin: 30px 0;
+.dns_country {
+  min-width: 100px; !important
+  width: 100px; !important
+}
+.dns_url {
+  min-width: 300px; !important
+}
+
+.content {
+  margin: 0px 0px 0px 0px;
 }
 
 /* Main marketing message and sign up button */

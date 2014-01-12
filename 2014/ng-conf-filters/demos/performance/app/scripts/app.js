@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('magicalDemoApp', [
-  'ui.filters',
+  'app.filters',
   'ngRoute'
 ])
 

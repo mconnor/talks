@@ -3,7 +3,7 @@
 angular.module('magicalDemoApp')
   .controller('MainCtrl', function ($scope, $http, $filter) {
 
-    var uniqueFilter = $filter('unique');
+    var makeFilterItems = $filter('makeFilterItems');
 
     $scope.count = 300;
 
@@ -14,12 +14,8 @@ angular.module('magicalDemoApp')
         $http.get('http://localhost:3000/api/v1/dns?limit=' + $scope.count).then(function (results) {
             $scope.status = "done.";
             $scope.items = results.data;
-            
-            $scope.countries = uniqueFilter($scope.items, "country_code", true);
-            $scope.filterItems = {}
-            angular.forEach($scope.countries, function (dns_entry) {
-                $scope.filterItems[dns_entry.country_code] = true;
-            });
+            $scope.filter = makeFilterItems($scope.items, "country_code", true);
+            console.log($scope.filter);
         });
     }
 
@@ -27,7 +23,7 @@ angular.module('magicalDemoApp')
 
     //registrar filter
     $scope.filterByCountry = function(dns) {
-        return $scope.filterItems[dns.country_code];
+        return $scope.filter.check[dns.country_code];
     };
 
 });
