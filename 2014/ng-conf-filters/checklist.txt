@@ -1,0 +1,8 @@
+Item checklist:
+
+Start up Talks app:
+$ grunt connect
+
+Start up data app:
+/demos/data
+$ nodemon ./server.js

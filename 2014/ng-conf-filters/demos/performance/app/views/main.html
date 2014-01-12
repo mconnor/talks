@@ -1,0 +1,46 @@
+<div class="header">
+  <h3 class="text-muted">Performance Demo</h3>
+  <h5>DNS of Malware Spam</h5>
+  <p>Status: {{status}}</p>
+</div>
+<div class="row marketing">
+  <div class="pull-left">
+    Count: <input ng-model="count" style="width:50px;"> {{items.length}} items being filtered <a href="javascript:" class="glyphicon glyphicon-search" ng-click="setCount('300')"></a>
+  </div>
+</div>
+<div class="row marketing">
+  <div class="filter_controls three-col">
+    <div ng-repeat = "country in countries" class="filter_checkbox">
+      <input type="checkbox" ng-model="filterItems[country.country_code]"> {{country.country_code}}
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+        <tr>
+            <th class="dns_name">Registrar
+              <a ng-click="sortBy='registrar'" class="glyphicon glyphicon-chevron-down"></a>
+              <a ng-click="sortBy='-registrar'" class="glyphicon glyphicon-chevron-up"></a></th>
+            <th class="dns_category">Country Code
+              <a ng-click="sortBy='country_code'" class="glyphicon glyphicon-chevron-down"></a>
+              <a ng-click="sortBy='-country_code'" class="glyphicon glyphicon-chevron-up"></a></th>
+            <th>Domain name
+              <a ng-click="sortBy='host_name'" class="glyphicon glyphicon-chevron-down"></a>
+              <a ng-click="sortBy='-host_name'" class="glyphicon glyphicon-chevron-up"></a></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in items | filter: filterByCountry | orderBy: sortBy | limitTo: 20">
+            <td>{{item.registrar}}</td>
+            <td>{{item.country_code}}</td>
+            <td>{{item.host_name}}</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+<pre>QUERY:{{query}}
+ITEMS: {{items | json}}</pre>
+
+<div class="footer">
+  <p>NG-CONF 2014 : AngularJS Filters</p>
+</div>

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myApp')
-    .controller('MainCtrl', function($scope, $http, $filter) {
+    .controller('MainCtrl', function ($scope, $http, $filter) {
 
         var uniqueFilter = $filter('unique');
 

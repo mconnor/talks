@@ -26,7 +26,30 @@ var beerSchema = new Schema({
   descript: String
 });
 
-var Beers = mongoose.model('Beers', beerSchema);
+var dnsSchema = new Schema({
+  _id: ObjectId,
+  name: String,
+  record_type: String,
+  mal4s_string: String,
+  data: String,
+  country_code: String,
+  ASN: String,
+  reverse_dns: String,
+  registrar: String,
+  date_time: String,
+  http_request: String,
+  http_response: String,
+  url: String,
+  malware_hash: String,
+  registrar: String,
+  ip: String,
+  dns_host: String,
+  domain_registrar: String,
+  host_name: String
+})
+
+var Beers = mongoose.model('beers', beerSchema);
+var dns = mongoose.model('dns', dnsSchema);
 
 var app = express();
 var options = {
@@ -47,6 +70,7 @@ app.configure(function(){
     );
 
     restify.serve(app, Beers, options);
+    restify.serve(app, dns, options);
 });
 
 http.createServer(app).listen(3000, function() {
