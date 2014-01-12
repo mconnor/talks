@@ -21,9 +21,9 @@ angular.module('magicalDemoApp')
 
     $scope.setCount(300);
 
-    //registrar filter
-    $scope.filterByCountry = function(dns) {
-        return $scope.filter.check[dns.country_code];
+    //filter
+    $scope.filterByCountry = function(item) {
+        return $scope.filter.check[item.country_code];
     };
 
 });

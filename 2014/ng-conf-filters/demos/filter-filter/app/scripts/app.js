@@ -1,7 +1,6 @@
 'use strict';
 
 angular.module('myApp', [
-  'app.filters',
   'ngResource',
   'ngRoute'
 ])

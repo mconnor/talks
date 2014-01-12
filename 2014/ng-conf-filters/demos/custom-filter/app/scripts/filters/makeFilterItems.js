@@ -1,18 +1,6 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Checkboxes Code</title>
-        <link rel="stylesheet" href="/common/highlight/highlight.min.css">
-        <link rel="stylesheet" href="/common/highlight/styles/default.css">
-        <script src="/common/highlight/highlight.pack.js"></script>
-        <script src="/common/highlight/highlight.min.js"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
-    </head>
-<body>
-<h2>Custom Filter Code</h2>
-<p>Filter</p>
-<pre>
-<code class="javascript">var filters = angular.module('app.filters', []);
+'use strict';
+
+var filters = angular.module('app.filters', []);
 
 filters.filter('makeFilterItems', function() {
 
@@ -73,32 +61,3 @@ filters.filter('makeFilterItems', function() {
             };
         };
     });
-</code>
-</pre>
-
-<p>Controller</p>
-<pre>
-<code class="javascript">angular.module('myApp')
-    .controller('MainCtrl', function ($scope, $http, $filter) {
-
-        var makeFilterItems = $filter('makeFilterItems');
-
-        $http.get('http://localhost:3000/api/v1/beers').then(function(results) {
-            $scope.beers = results.data;
-
-            $scope.filter = makeFilterItems($scope.beers, "category", true);
-            console.log($scope.beers)
-
-        });
-
-        //small custom filter
-        $scope.filterByCategory = function(item) {
-            return $scope.filter.check[item.category];
-        };
-
-    });
-</code>
-</pre>
-
-</body>
-</html>
