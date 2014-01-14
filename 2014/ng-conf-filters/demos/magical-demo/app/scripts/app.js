@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('magicalDemoApp', [
-  'ngRoute'
+  'ngRoute',
+  'app.directives',
+  'app.filters'
 ])
   .config(function ($routeProvider) {
     $routeProvider

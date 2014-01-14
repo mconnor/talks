@@ -1,15 +1,9 @@
-<div class="header">
-  <h3 class="text-muted">magical demo</h3>
+<div>status: {{status}}
+    <form name="filterForm" ng-submit="filterItems(filterOn)">
+        <div class="pull-right">
+            filter on: <input ng-model="filterOn">
+        </div>
+        <input type="submit" name="submit" class="hidden" value="hidden submit">
+    </form>
 </div>
-
-<div class="jumbotron">
-  
-</div>
-
-<div class="row marketing">
-  <p>Fun Fun Fun</p>
-</div>
-
-<div class="footer">
-  <p>NG-CONF 2014 : AngularJS Filters</p>
-</div>
+<sunburst items = "filteredObject"></sunburst>
