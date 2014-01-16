@@ -49,18 +49,29 @@ box-shadow: none;
                     <h3>Ng-Conf January 2013</h3>
 
                     Sharon DiOrio &bull; [@sharondio]
+
+                    <aside class="notes">
+                        I work for Euro-Pro, we make the Shark and Ninja kitchen products. Yes, that is our actual boss you see on late-night informercials.
+                    </aside>
+
                 </section>
 
                 <section>
                     <h2>Every presentation has a story*</h2>
 
                     <p>* It's a rule. I read it in a book somewhere</p>
+
+                    <aside class="notes">
+                        Technical Evaluation.
+                        Mention Ember.
+                        2 hours of coding in Angular, and I produced this.
+                    </aside>
                 </section>
 
                 <section>
                     <h2>The Code</h2>
 
-<pre><code data-trim contenteditable><div ng-controller="MainCtrl">
+<pre class="stretch"><code data-trim contenteditable><div ng-controller="MainCtrl">
     Filter by: <input ng-model="query">
     <table>
     <thead><tr>
@@ -77,36 +88,60 @@ box-shadow: none;
 </table>
 </div></code></pre>
 
+                <aside class="notes">
+                    Doesn't look like much...but when it produced this...
+                </aside>
+
                 </section>
 
                 <section>
 
                     <h2>My first app</h2>
 
-                    <iframe style="height: 530px; width: 80%; border: 0;" src="demos/first-app/">
+                    <iframe class="stretch" style="border: 0;" src="demos/first-app/">
                     </iframe>
 
                     <a class="demo" href="demos/first-app/">clicky-clicky</a>
-
-                    <aside class="notes"></aside>
 
                 </section>
 
                 <section>
                     <img src="images/fire.jpg" />
+
+                    <aside class="notes">
+                        As an aside, most people choose technology...
+                        I choose technology...
+                        And angular filters made me look like a genius.
+                        It seemed like magic.
+                    </aside>
                 </section>
 
                 <section>
-                    <h2>It's definitely not magic</h2>
+                    <h2>I'm reasonably sure it's not magic</h2>
 
                     <img src="images/xkcd_not_magic.png" />
 
                     <p>http://xkcd.com/373/</p>
 
+                    <aside class="notes">
+                        - Serious lack of Angular comics
+                        - We'll know we've really made it when they make fun of us
+                    </aside>
+
                 </section>
                 
                 <section>
-                    <h2>Built-in Filters</h2>
+                    <h2>Built-in Filters I won't be covering</h2>
+
+                    <ul>
+                        <li>currency</li>
+                        <li>date</li>
+                        <li>json</li>
+                        <li>limitTo</li>
+                        <li>lowercase/uppercase</li>
+                        <li>number</li>
+                        <li>orderBy</li>
+                    </ul>
 
                     <p class="fragment fade-in">Go read the docs.</p>
 
@@ -114,7 +149,7 @@ box-shadow: none;
 
                 <section>
 
-                    <h3>String Filter</h3>
+                    <h3>Custom String Filter</h3>
 
 <pre><code data-trim contenteditable>angular.module('phonecatFilters', [])
   .filter('checkmark', function() {
@@ -123,34 +158,47 @@ box-shadow: none;
     };
   });
 </code></pre>
-
+                    <aside class="notes">
+                        It's probably pretty basic, but it's worth mentioning, IRC/StackOverflow...
+                    </aside>
 
                 </section>
 
                 <section>
                     <h2>Filter: Filter (Array forEach Filter)</h2>
 
-                    <iframe style="height: 530px; width: 80%; border: 0;" src="demos/filter-filter/app/">
+                    <iframe class="stretch" style="border: 0;" src="demos/filter-filter/app/">
                     </iframe>
 
                     <a class="demo" href="demos/filter-filter/app/">clicky-clicky</a>
                     <a class="demo" href="demos/filter-filter/code.html">code me</a>
+                    
+                    <aside class="notes">
+                        - Same as my app
+                        - A filter: filter (nice work naming that one guys) for Each
+                    </aside>
                 
                 </section>
 
                 <section>
-                    <h2>Custom Filter</h2>
+                    <h2>Custom Array Filter</h2>
 
-                    <iframe style="height: 530px; width: 80%; border: 0;" src="demos/custom-filter/app/">
+                    <iframe class="stretch" style="border: 0;" src="demos/custom-filter/app/">
                     </iframe>
 
                     <a class="demo" href="demos/custom-filter/app/">clicky-clicky</a>
                     <a class="demo" href="demos/custom-filter/code.html">code me</a>
+
+                    <aside class="notes">
+                        - Where I see the most potential (get a little excited, mention demo at the end)
+                        - Data transforms, pull them out of the service and controller
+                        - Repurpose data you've already retrieved
+                    </aside>
                     
                 </section>
 
                 <section>
-                    <h2>Testing Filters</h2>
+                    <h2>Requisite Testing Slide Goes Here</h2>
 
                     <!-- code sample here -->
 <pre>
@@ -168,8 +216,12 @@ box-shadow: none;
   });
 });</code></pre>
 
-                    <p class="fragment fade-in">(No excuses for not testing filters)</p>
                     <p class="fragment fade-in">(Seriously. Just do it.)</p>
+
+                    <aside class="notes">
+                        - Filters have to be the easiest thing in Angular to test. 
+                        - Literally, expect(myFilter(garbage.in)).toBe(garbage.out)
+                    </aside>
                 </section>
 
                 <section>
@@ -184,6 +236,11 @@ box-shadow: none;
 <pre><code data-trim contenteditable>&lt;tr ng-repeat="beer in beers | filter : filterByCategory | orderBy : sortBy | limitTo : 20"&gt;</code></pre>
 </div>
                 <a class="demo" href="demos/chaining-code.html">code-me</a>
+                
+                    <aside class="notes">
+                        - Most useful feature of filters, just a pipe!
+                        - Order matters
+                    </aside>
                 </section>
 
                 <section>
@@ -193,18 +250,32 @@ box-shadow: none;
                     </iframe>
                 
                     <a class="demo" href="demos/performance/app/">clicky-clicky</a>
+                    
+                    <aside class="notes">
+                        - Status is just measuring when the data is returned.
+                        - First question people ask
+                        - Here's an answer
+                    </aside>
                 </section>
 
                 <section>
                     <h2>Don't Use Filters When...</h2>
 
                     <ul>
-                        <li class="fragment fade-in">Doing DOM Manipulation (use directives!)</li>
-                        <li class="fragment fade-in">Accessing data (use services!)</li>
+                        <li class="fragment fade-in">Doing DOM Manipulation</li>
+                        <li class="fragment fade-in">Accessing data</li>
                         <li class="fragment fade-in">Querying your data service is faster</li>
-                        <li class="fragment fade-in">You're using unstable functions (returns should be reliable)</li>
+                        <li class="fragment fade-in">You're using unstable functions</li>
                         <li class="fragment fade-in">Restricting access to information</li>
                     </ul>
+
+                    <aside class="notes">
+                        - Use Directives!
+                        - Use Services!
+                        - (It could happen)
+                        - Not really the purpose of filters + untestable
+                        - It's not really secure
+                    </aside>
                 
                 </section>
 
@@ -215,6 +286,14 @@ box-shadow: none;
                     </iframe>
 
                     <a class="demo" href="demos/first-app/">clicky-clicky</a>
+
+                    <aside class="notes">
+                        - Same 300k+ recordset
+                        - Again, status is just measuring when the data is returned.
+                        - Filtering object data into hierarchy
+                        - Directive updates the chart based on the filter
+                        - queries Tucow, lycos, google, akamai
+                    </aside>
                 
                 </section>
 
