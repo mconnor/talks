@@ -46,12 +46,16 @@ box-shadow: none;
             <div class="slides">
                 <section>
                     <h1>Angular Filters</h1>
+                    <h2>Beyond OrderBy and LimitTo</h2>
                     <h3>Ng-Conf January 2013</h3>
 
                     Sharon DiOrio &bull; [@sharondio]
 
                     <aside class="notes">
-                        I work for Euro-Pro, we make the Shark and Ninja kitchen products. Yes, that is our actual boss you see on late-night informercials.
+                        Euro-Pro, we make the Shark and Ninja kitchen products. 
+                        Internal Applications, business intelligence and analytics - don't blame me
+                        Chief Instigator - AngularJS Boston Meetup
+                        Groupie of the boy band known as Misko and Company
                     </aside>
 
                 </section>
@@ -69,9 +73,16 @@ box-shadow: none;
                 </section>
 
                 <section>
-                    <h2>The Code</h2>
+                    <h2>The landscope in 2011 was very different</h2>
 
-<pre class="stretch"><code data-trim contenteditable><div ng-controller="MainCtrl">
+                    <img src="images/chart_2011.png">
+
+                </section>
+
+                <section>
+                    <h2>The Code I wrote in 2 hours</h2>
+
+<pre><code data-trim contenteditable><div ng-controller="MainCtrl">
     Filter by: <input ng-model="query">
     <table>
     <thead><tr>
@@ -89,7 +100,7 @@ box-shadow: none;
 </div></code></pre>
 
                 <aside class="notes">
-                    Doesn't look like much...but when it produced this...
+                    To us veterans, it doesn't look like much...but when it produced this...
                 </aside>
 
                 </section>
@@ -101,7 +112,7 @@ box-shadow: none;
                     <iframe class="stretch" style="border: 0;" src="demos/first-app/">
                     </iframe>
 
-                    <a class="demo" href="demos/first-app/">clicky-clicky</a>
+                    <a class="demo" href="demos/first-app/">click-me</a>
 
                 </section>
 
@@ -117,7 +128,14 @@ box-shadow: none;
                 </section>
 
                 <section>
-                    <h2>I'm reasonably sure it's not magic</h2>
+                    <h2>Landscape today</h2>
+
+                    <img src="images/chart.png">
+
+                </section>
+
+                <section>
+                    <h2>I was sure it was magic</h2>
 
                     <img src="images/xkcd_not_magic.png" />
 
@@ -131,7 +149,7 @@ box-shadow: none;
                 </section>
                 
                 <section>
-                    <h2>Built-in Filters I won't be covering</h2>
+                    <h2>I won't be covering:</h2>
 
                     <ul>
                         <li>currency</li>
@@ -143,7 +161,7 @@ box-shadow: none;
                         <li>orderBy</li>
                     </ul>
 
-                    <p class="fragment fade-in">Go read the docs.</p>
+                    <p class="fragment fade-in" style="margin-top: 20px;">Go read the docs.</p>
 
                 </section>
 
@@ -165,12 +183,12 @@ box-shadow: none;
                 </section>
 
                 <section>
-                    <h2>Filter: Filter (Array forEach Filter)</h2>
+                    <h2>Filter: Filter</h2>
 
                     <iframe class="stretch" style="border: 0;" src="demos/filter-filter/app/">
                     </iframe>
 
-                    <a class="demo" href="demos/filter-filter/app/">clicky-clicky</a>
+                    <a class="demo" href="demos/filter-filter/app/">click-me</a>
                     <a class="demo" href="demos/filter-filter/code.html">code me</a>
                     
                     <aside class="notes">
@@ -186,8 +204,8 @@ box-shadow: none;
                     <iframe class="stretch" style="border: 0;" src="demos/custom-filter/app/">
                     </iframe>
 
-                    <a class="demo" href="demos/custom-filter/app/">clicky-clicky</a>
-                    <a class="demo" href="demos/custom-filter/code.html">code me</a>
+                    <a class="demo" href="demos/custom-filter/app/">click-me</a>
+                    <a class="demo" href="demos/custom-filter/code.html">code-me</a>
 
                     <aside class="notes">
                         - Where I see the most potential (get a little excited, mention demo at the end)
@@ -249,7 +267,7 @@ box-shadow: none;
                     <iframe style="height: 530px; width: 100%; border: 0;" src="demos/performance/app/">
                     </iframe>
                 
-                    <a class="demo" href="demos/performance/app/">clicky-clicky</a>
+                    <a class="demo" href="demos/performance/app/">click-me</a>
                     
                     <aside class="notes">
                         - Status is just measuring when the data is returned.
@@ -280,12 +298,12 @@ box-shadow: none;
                 </section>
 
                 <section>
-                    <h2>Filters are still Magical</h2>
+                    <h2>Filters can still be Magical</h2>
 
                     <iframe style="height: 530px; width: 80%; border: 0;" src="demos/magical-demo/app/">
                     </iframe>
 
-                    <a class="demo" href="demos/first-app/">clicky-clicky</a>
+                    <a class="demo" href="demos/first-app/">click-me</a>
 
                     <aside class="notes">
                         - Same 300k+ recordset
