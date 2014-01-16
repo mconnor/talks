@@ -24,6 +24,8 @@
 
 .demo {
   display: block; !important
+  padding-right: 10px;
+
 }
 
 .reveal section {

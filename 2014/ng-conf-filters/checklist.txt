@@ -8,3 +8,7 @@ $ grunt connect
 3. Start up data app:
 /demos/data
 $ nodemon ./server.js
+
+4. Clear browser cache.
+
+5. Confirm all messaging apps are closed.
