@@ -1,6 +1,6 @@
 <cfcomponent output="true" displayname="Beers API">
 
-	<cffunction access="remote" name="getBeers" output="true" returnformat="JSON">
+	<cffunction name="getBeers" output="true">
 		<cfargument name="name" default="" />
 		<cfargument name="brewery_id" default="0" />
 		<cfargument name="sortBy" default="name" />
@@ -21,9 +21,12 @@
 			ON B.cat_id = C.id
 			WHERE B.name IS NOT NULL
 			AND B.name <> ''
-			AND BR.name <> ''
+			AND B.descript <> ''
+			AND B.brewery_id <> ''
+			AND B.cat_id <> ''
+			AND B.style_id <> ''
 			<cfif len(arguments.name)>
-				AND B.name LIKE <cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.name#" />
+				AND B.name LIKE <cfqueryparam cfsqltype="cf_sql_varchar" value="%#arguments.name#%" />
 			</cfif>
 			<cfif arguments.brewery_id>
 				AND B.brewery_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.brewery_id#" />
@@ -39,7 +42,7 @@
 		<cfreturn local.result />
 	</cffunction>
 
-	<cffunction access="remote" name="getBeerCount"  returnformat="JSON">
+	<cffunction name="getBeerCount" >
 		<cfargument name="name" default="" />
 		<cfargument name="brewery_id" default="0" />
 		<cfquery name="beers">
@@ -56,9 +59,32 @@
 		<cfreturn beers.beerCount />
 	</cffunction>
 
-	<cffunction access="remote" returnformat="JSON" name="getCategories">
+	<cffunction name="getBeerDetail">
+		<cfargument name="id" default=0 />
+		<cfquery name="local.beer">
+			SELECT B.name, B.abv, B.descript, BR.name AS 'brewery', BR.city, BR.state, BR.country, C.cat_name AS 'category', S.style_name AS 'style', G.longitude, G.latitude
+			FROM beers B
+			LEFT OUTER JOIN breweries BR
+			ON B.brewery_id = BR.id
+			LEFT OUTER JOIN styles S
+			ON B.style_id = S.id
+			LEFT OUTER JOIN categories C
+			ON B.cat_id = C.id
+			LEFT OUTER JOIN geocodes G
+			ON BR.id = G.brewery_id
+			WHERE B.id = <cfqueryparam cfsqltype="cf_sql_integer" value="#arguments.id#" />
+			AND B.descript <> ''
+			AND B.brewery_id <> ''
+			AND B.cat_id <> ''
+			AND B.style_id <> ''
+		</cfquery>
+		<cfset local.result = queryToArray(qData=local.beer) />
+		<cfreturn local.result[1] />
+	</cffunction>
+
+	<cffunction name="getCategories">
 		<cfquery name="local.categories">
-			SELECT cat_name
+			SELECT id, cat_name
 			FROM categories
 			WHERE cat_name <> ''
 			ORDER BY cat_name
@@ -67,9 +93,9 @@
 		<cfreturn local.result />
 	</cffunction>
 
-	<cffunction access="remote" returnformat="JSON" name="getStyles">
+	<cffunction name="getStyles">
 		<cfquery name="local.styles">
-			SELECT style_name
+			SELECT id, style_name
 			FROM styles
 			ORDER BY style_name
 		</cfquery>
@@ -77,17 +103,18 @@
 		<cfreturn local.result />
 	</cffunction>
 
-	<cffunction access="remote" returnformat="JSON" name="getBreweries">
+	<cffunction name="getBreweries">
+		<cfargument name="listify" default=true />
 		<cfquery name="local.breweries">
-			SELECT name
+			SELECT <cfif arguments.listify>id, name<cfelse>*</cfif>
 			FROM breweries
 			ORDER BY name
 		</cfquery>
-		<cfset local.result = queryToArray(qData=local.breweries, listify=true) />
+		<cfset local.result = queryToArray(qData=local.breweries) />
 		<cfreturn local.result />
 	</cffunction>
 
-	<cffunction access="remote" name="saveBeer" returnformat="JSON">
+	<cffunction name="saveBeer">
 		<!--- cheating this one --->
 		<cfreturn true />
 	</cffunction>

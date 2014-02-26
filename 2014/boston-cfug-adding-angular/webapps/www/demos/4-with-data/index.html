@@ -22,7 +22,7 @@
               $scope.title = "With Data";
 
               $scope.gimme = function() {
-                $http.get('../../static_data/beers.json').then(function(results) {
+                $http.get('../static_data/beers.json').then(function(results) {
                     $scope.beers = results.data;
                     console.log($scope.beers);
                   });              

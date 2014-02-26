@@ -236,7 +236,7 @@ Bootstrapping a complete AngularJS Application
 &lt;/html&gt;
 </code></pre>
 
-<small><a href="http://localhost:8888/1-data-binding/">Clicky-Clicky</a></small>
+<small><a href="http://localhost:8888/demos/1-data-binding/">Clicky-Clicky</a></small>
 
 <aside class="notes">
   This is it. This is a fully-functioning, Angular app. OK, it's not an MVC app, it's just a MV app, but what it does is still pretty cool.
@@ -250,12 +250,6 @@ Bootstrapping a complete AngularJS Application
 
 </section><section>
 
-<h2>True story!</h2>
-
-<img src="/common/images/fire.jpg" />
-
-</section><section>
-
 <h2> Demo 2</h2>
 With a controller
 
@@ -263,7 +257,7 @@ With a controller
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
     &lt;head&gt;
-        &lt;title&gt;Adding AngularJS to Existing Apps - App-Module-Controller&lt;/title&gt;
+        &lt;title&gt;Adding AngularJS to Existing Apps - App Module Controller&lt;/title&gt;
         &nbsp;
         &lt;!-- style counts --&gt;
         &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/normalize.css&quot;&gt;
@@ -277,12 +271,12 @@ With a controller
             'use strict';
             &nbsp;
             //App module.
-            var app = angular.module('basic-app-module', []);
+            var app = angular.module('app-module-controller', []);
             &nbsp;
             //Controller - I control stuff
             app.controller('MainCtrl', function($scope) {
               &nbsp;
-              $scope.title = &quot;Basic App Module&quot;;
+              $scope.title = &quot;App Module Controller&quot;;
               &nbsp;
             });
         &lt;/script&gt;
@@ -294,7 +288,7 @@ With a controller
 &lt;/html&gt;
 </code></pre>
 
-<small><a href="http://localhost:8888/2-app-module-controller">Clicky-Clicky</a></small>
+<small><a href="http://localhost:8888/demos/2-app-module-controller">Clicky-Clicky</a></small>
 
 <aside class="notes">
   In this one, we're declaring an app module. Angular is very module based, and this helps keep the code more organized into apps. 
@@ -307,6 +301,9 @@ With a controller
 </section><section>
 
 <h2>What the [bleep] is $scope?!?</h2>
+
+<small><a href="http://docs.angularjs.org/guide/scope">http://docs.angularjs.org/guide/scope</a></small>
+<p class="fragment fade-in">$scope is a shared namespace between views and controllers.</p>
 
 <aside class="notes">
   $scope actually works somewhat like CF variable scopes. It is a shared namespace between the view and the controller.
@@ -356,7 +353,7 @@ A controller function used in the view
 &lt;/html&gt;
 </code></pre>
 
-<small><a href="http://localhost:8888/3-app-module-controller-function">Clicky-Clicky</a></small>
+<small><a href="http://localhost:8888/demos/3-app-module-controller-function">Clicky-Clicky</a></small>
 
 <aside class="notes">
   In this one, we're declaring an app module. Angular is very module based, and this helps keep the code more organized into apps. 
@@ -417,7 +414,7 @@ Nothing ain't nothing without data
 &lt;/html&gt;
 </code></pre>
 
-<small><a href="http://localhost:8888/4-with-data">Clicky-Clicky</a></small>
+<small><a href="http://localhost:8888/demos/4-with-data">Clicky-Clicky</a></small>
 
 <aside class="notes">
   When I look at demos, the first thing I want to do is talk to data. Unfortunately, most of the online demos don't do that because they can't host an actual demo app online. But I can.
@@ -489,7 +486,7 @@ Put data access in a service
 &lt;/html&gt;
 </code></pre>
 
-<small><a href="http://localhost:8888/5-with-data-service">Clicky-Clicky</a></small>
+<small><a href="http://localhost:8888/demos/5-with-data-service">Clicky-Clicky</a></small>
 
 <aside class="notes">
   I'm not going to spend a lot of time on this, but I wanted to show a better way of doing the data handling. Services are shared singletons injected into controllers. Because they're singletons, they're also a good way to share data between controllers.
@@ -561,7 +558,7 @@ Put data access in a service
 &lt;/html&gt;
 </code></pre>
 
-<small><a href="http://localhost:8888/6-expanded-data-service">Clicky-Clicky</a></small>
+<small><a href="http://localhost:8888/demos/6-expanded-data-service">Clicky-Clicky</a></small>
 
 <aside class="notes">
   Just wanted to show a more expanded service. You can group functions together in a service by using the "this" namespace.
@@ -575,56 +572,54 @@ Put data access in a service
 
 </section><section>
 
-<h2>"Real" Demo</h2>
-
-<small><a href="http://localhost:8888/real-app">Clicky-Clicky</a></small>
-
-</section><section>
-
-<h2>Now, a story</h2>
-
-
-
-<small>Stop me if you've heard this one before</small>
+<h2>"Real" Demos:</h2>
+<ul>
+<li><a href="http://localhost:8888/demos/7-real-app">Real (Demo) App</a></li>
+<li><a href="http://localhost:8888/demos/8-real-app-angular">Real App Angularized</a></li>
+<li><a href="http://localhost:8888/demos/9-real-app-filtered">Real App Angular Filter</a></li>
+<li><a href="http://localhost:8888/demos/10-real-app-checkbox-filtered">Real App Angular Checkbox Filters</a></li>
+</ul>
 
 </section><section>
 
-<h2>Rolling Demo</h2>
+<h2>True story!</h2>
 
-<small><a href="demos/before/real-app/sortable">Clicky-Clicky</a></small>
+<img src="/common/images/fire.jpg" />
 
 </section><section>
 
 <pre><code data-trim contenteditable>
-var app = angular.module('NCDevConTalk', []);
+var app = angular.module('BostonCFUG', []);
 app.controller('TalkCtrl', function($scope) {
   $scope.status = 'done';
 });
 </code></pre>
 
-<br />
 
 ------
 
 <br />
 
-Slides: [Github Repo](https://github.com/Sharondio/tree/master/2013/adding-angular-to-existing-apps)
-
-<small>sharondio @ [twitter](http://twitter.com/sharondio) &amp; [Google+](https://plus.google.com/u/0/115487514031744604257/posts)</small>
-
-<br />
+<p>Slides: <a href="https://github.com/Sharondio/talks">https://github.com/Sharondio/talks</a></p>
+<p><a href="http://twitter.com/sharondio">@sharondio</a></p>
 
 ------
+
+<br />
 
 Resources:
-<small>
 
-* [Docs] (http://angularjs.org) AngularJS
-* [Tutorial] (http://docs.angularjs.org/tutorial) AngularJS Tutorial
-* [Videos] (http://egghead.io) Egghead Videos
-* [Videos] (http://www.youtube.com/user/angularjs) Angular Youtube Channel
-* [Blog] (http://www.yearofmoo.com/) Year of Moo Blog
-</small>
+<br />
+
+<small>
+<ul>
+  <li>Docs: <a href="http://angularjs.org">AngularJS Site</a></li>
+  <li>Tutorial: <a href="http://docs.angularjs.org/tutorial">AngularJS Tutorial</a></li>
+  <li>Videos: <a href="http://egghead.io">Egghead.io</a></li>
+  <li>Videos: <a href="http://www.youtube.com/user/angularjs">AngularJS Youtube Channel</a></li>
+  <li>Blog: <a href="http://www.yearofmoo.com">Year of Moo Blog</a></li>
+</li>
+
 </section>
 
         </div>
