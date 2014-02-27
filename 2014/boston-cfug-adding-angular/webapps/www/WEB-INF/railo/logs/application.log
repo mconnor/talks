@@ -116,3 +116,7 @@ The last packet successfully received from the server was 590,317 milliseconds a
 "ERROR","web-0","02/26/2014","16:56:50","","Page /demos/8-real-app-filtered/da-beers.cfm [/Users/sharon/Documents/projects/talks/2014/boston-cfug-adding-angular/webapps/www/demos/8-real-app-filtered/da-beers.cfm] not found"
 "ERROR","web-0","02/26/2014","16:57:07","","component [data] has no  function with name [getBeerDetail]"
 "ERROR","web-0","02/26/2014","17:09:58","","component [demos.7-real-app.data] has no remote function with name [getBeers]"
+"ERROR","web-0","02/26/2014","19:35:53","","component [demos.7-real-app.data] has no remote function with name [getBeers]"
+"ERROR","web-0","02/26/2014","19:35:59","","component [demos.7-real-app.data] has no remote function with name [getBeers]"
+"ERROR","web-0","02/26/2014","19:36:11","","component [demos.7-real-app.data] has no remote function with name [getBeers]"
+"ERROR","web-0","02/26/2014","19:36:14","","component [demos.7-real-app.data] has no remote function with name [getBeers]"

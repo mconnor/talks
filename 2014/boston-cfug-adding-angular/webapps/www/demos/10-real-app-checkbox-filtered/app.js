@@ -18,10 +18,10 @@ app.controller('MainCtrl', function($scope, $http) {
         for(var cat in $scope.categories) {
             $scope.filterItems[$scope.categories[cat]] = true;
         }
-        
-        $scope.catFilter = function(beer) {
-            return $scope.filterItems[beer.CATEGORY];
-        };
     });
+
+    $scope.catFilter = function(beer) {
+        return $scope.filterItems[beer.CATEGORY];
+    };
 
 });
