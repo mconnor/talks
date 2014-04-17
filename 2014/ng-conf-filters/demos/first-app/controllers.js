@@ -1,4 +1,3 @@
-
 /*global angular*/
 (function () {
     'use strict';
@@ -29,8 +28,6 @@
                 $log.log('error- ' + data.error + ' ' + status);
         });
 
-
-        
         //Little function to create the sort order click handler
         $scope.setOrder = function (orderProp) {
             $scope.orderProp = orderProp;
@@ -43,15 +40,9 @@
         };
 
     };
-    //controllers = angular.module('app.controllers',[]);
     MainCtrl.$inject = [ '$scope', '$location', '$routeParams', 'Host', '$filter' ];
+    
     angular.module('app.controllers',[])
         .controller('MainCtrl', MainCtrl);
-///
-    //MainCtrl.$inject = [ '$scope', '$location', '$routeParams', 'Host', '$filter' ];
-
-   // angular.module('app.controllers')
-   //     .controller('MainCtrl', MainCtrl);
-
 
 }());
