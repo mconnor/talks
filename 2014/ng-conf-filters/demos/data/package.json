@@ -5,8 +5,8 @@
     "grunt": "~0.4.x",
     "grunt-contrib-connect": "~0.6.x",
     "highlight.js": "~7.5.x",
-    "mongoose": "~3.8.x",
-    "express-restify-mongoose": "~0.6.x",
+    "mongoose": "~5.11.7",
+    "express-restify-mongoose": "~1.1.1",
     "express": "~3.4.x"
   },
   "devDependencies": {
