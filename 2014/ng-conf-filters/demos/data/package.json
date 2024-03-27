@@ -7,7 +7,7 @@
     "highlight.js": "~7.5.x",
     "mongoose": "~3.8.x",
     "express-restify-mongoose": "~0.6.x",
-    "express": "~3.4.x"
+    "express": "~4.19.2"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.7.2",
