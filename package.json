@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "repository": "git@github.com:Sharondio/talks.git",
   "dependencies": {
-    "grunt": "~0.4.2",
+    "grunt": "~1.0.3",
     "grunt-contrib-connect": "~0.6.0",
     "highlight": "~0.2.3",
     "mongoose": "~3.8.4",
-    "express-restify-mongoose": "~0.6.3"
+    "express-restify-mongoose": "~4.2.0"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.8.0",
